@@ -10,9 +10,15 @@ resource "aws_ecs_service" "nginx" {
   launch_type     = "FARGATE"
 
   network_configuration {
-    subnets          = [data.aws_subnet.default_public_subnet_a.id]
+    subnets          = [data.aws_subnet.default_public_subnet_a.id, data.aws_subnet.default_public_subnet_c.id]
     security_groups  = [data.aws_security_group.default_web_sg.id]
     assign_public_ip = true
+  }
+
+  load_balancer {
+    target_group_arn = aws_lb_target_group.blue.arn
+    container_name   = "nginx"
+    container_port   = 80
   }
 
   lifecycle {

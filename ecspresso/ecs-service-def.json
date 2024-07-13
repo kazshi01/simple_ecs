@@ -13,7 +13,15 @@
   "desiredCount": 1,
   "enableECSManagedTags": false,
   "enableExecuteCommand": false,
+  "healthCheckGracePeriodSeconds": 0,
   "launchType": "FARGATE",
+  "loadBalancers": [
+    {
+      "containerName": "nginx",
+      "containerPort": 80,
+      "targetGroupArn": "arn:aws:elasticloadbalancing:ap-northeast-1:996109426400:targetgroup/blue-target-group/c45d96ea362ed668"
+    }
+  ],
   "networkConfiguration": {
     "awsvpcConfiguration": {
       "assignPublicIp": "ENABLED",
@@ -21,7 +29,8 @@
         "sg-0bade2bf85ca9026f"
       ],
       "subnets": [
-        "subnet-04eee8684fb7f5114"
+        "subnet-04eee8684fb7f5114",
+        "subnet-0738d451374a484d9"
       ]
     }
   },
