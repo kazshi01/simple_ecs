@@ -4,4 +4,4 @@ service: nginx-service
 service_definition: ecs-service-def.json
 task_definition: ecs-task-def.json
 timeout: "10m0s"
-# statefile: "path/to/your/statefile.json" # statefileを指定すれば状態を追跡できる
+# statefile: "path/to/your/statefile.json" #statefileを指定すれば状態を追跡できる
