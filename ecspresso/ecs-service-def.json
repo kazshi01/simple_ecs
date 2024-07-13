@@ -1,0 +1,32 @@
+{
+  "deploymentConfiguration": {
+    "deploymentCircuitBreaker": {
+      "enable": false,
+      "rollback": false
+    },
+    "maximumPercent": 200,
+    "minimumHealthyPercent": 100
+  },
+  "deploymentController": {
+    "type": "ECS"
+  },
+  "desiredCount": 2,
+  "enableECSManagedTags": false,
+  "enableExecuteCommand": false,
+  "launchType": "FARGATE",
+  "networkConfiguration": {
+    "awsvpcConfiguration": {
+      "assignPublicIp": "ENABLED",
+      "securityGroups": [
+        "sg-0bade2bf85ca9026f"
+      ],
+      "subnets": [
+        "subnet-04eee8684fb7f5114"
+      ]
+    }
+  },
+  "platformFamily": "Linux",
+  "platformVersion": "LATEST",
+  "propagateTags": "NONE",
+  "schedulingStrategy": "REPLICA"
+}
