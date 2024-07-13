@@ -36,4 +36,5 @@ jobs:
         version: latest
 
     - name: Deploy to ECS
-      run: ecspresso deploy --config simple_ecs/ecspresso/ecspresso.yml
+      run: ecspresso deploy --config ecspresso/ecspresso.yml
+      working-directory: simple_ecs
