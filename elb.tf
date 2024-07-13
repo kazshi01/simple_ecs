@@ -60,3 +60,19 @@ resource "aws_lb_listener" "http" {
     target_group_arn = aws_lb_target_group.blue.arn
   }
 }
+
+resource "aws_lb_listener_rule" "green_rule" {
+  listener_arn = aws_lb_listener.http.arn
+  priority     = 100
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.green.arn
+  }
+
+  condition {
+    path_pattern {
+      values = ["/*"]
+    }
+  }
+}
