@@ -29,11 +29,10 @@ jobs:
         aws-region: ${{ env.AWS_REGION }}
         role-to-assume: ${{ env.OIDC_ROLE_ARN }}
 
-
     - name: Install ecspresso
       uses: kayac/ecspresso@v2
       with:
         version: latest
 
     - name: Deploy to ECS
-      run: ecspresso deploy --config ecspresso/ecspresso.yml
+      run: ecspresso deploy --config ecspresso/ecspresso.yml &
