@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'simple_ecs/ecspresso/**'
+      - ecspresso/**
 
 permissions:
   id-token: write
