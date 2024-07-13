@@ -42,7 +42,9 @@ resource "aws_iam_role_policy" "github_actions_policy" {
           "ecs:DescribeTaskDefinition",
           "ecs:DescribeTasks",
           "ecs:ListTasks",
-          "iam:PassRole"
+          "iam:PassRole",
+          "sts:AssumeRoleWithWebIdentity",
+          "sts:GetCallerIdentity"
         ],
         Resource = "*"
       }
