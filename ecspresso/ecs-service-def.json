@@ -10,7 +10,7 @@
   "deploymentController": {
     "type": "ECS"
   },
-  "desiredCount": 3,
+  "desiredCount": 2,
   "enableECSManagedTags": false,
   "enableExecuteCommand": false,
   "launchType": "FARGATE",

@@ -29,25 +29,7 @@ resource "aws_iam_role" "github_actions_role" {
   })
 }
 
-resource "aws_iam_role_policy" "github_actions_policy" {
-  role = aws_iam_role.github_actions_role.id
-  policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [
-      {
-        Effect = "Allow",
-        Action = [
-          "ecs:UpdateService",
-          "ecs:DescribeServices",
-          "ecs:DescribeTaskDefinition",
-          "ecs:DescribeTasks",
-          "ecs:ListTasks",
-          "iam:PassRole",
-          "sts:AssumeRoleWithWebIdentity",
-          "sts:GetCallerIdentity"
-        ],
-        Resource = "*"
-      }
-    ]
-  })
+resource "aws_iam_role_policy_attachment" "github_actions_role_admin" {
+  role       = aws_iam_role.github_actions_role.name
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
