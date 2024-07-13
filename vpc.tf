@@ -13,6 +13,14 @@ data "aws_subnet" "default_public_subnet_a" {
   vpc_id = data.aws_vpc.default.id
 }
 
+data "aws_subnet" "default_public_subnet_c" {
+  filter {
+    name   = "tag:Name"
+    values = ["default-c"]
+  }
+  vpc_id = data.aws_vpc.default.id
+}
+
 data "aws_security_group" "default_web_sg" {
   filter {
     name   = "tag:Name"
