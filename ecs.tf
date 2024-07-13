@@ -22,6 +22,11 @@ resource "aws_ecs_service" "nginx" {
   }
 
   lifecycle {
-    ignore_changes = [task_definition]
+    ignore_changes = [
+      task_definition,
+      load_balancer,
+      network_configuration,
+      desired_count
+    ]
   }
 }
