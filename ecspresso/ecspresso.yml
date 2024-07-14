@@ -1,6 +1,6 @@
 region: "ap-northeast-1"
 cluster: default-cluster
-service: nginx-service
+service: service
 service_definition: ecs-service-def.json
 task_definition: ecs-task-def2.json
 timeout: "10m0s"
