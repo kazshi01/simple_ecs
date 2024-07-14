@@ -2,6 +2,6 @@ region: "ap-northeast-1"
 cluster: default-cluster
 service: nginx-service
 service_definition: ecs-service-def.json
-task_definition: ecs-task-def.json
+task_definition: ecs-task-def2.json
 timeout: "10m0s"
 # statefile: "path/to/your/statefile.json" # statefileを指定すれば状態を追跡できる
