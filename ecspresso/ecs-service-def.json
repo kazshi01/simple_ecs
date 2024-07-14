@@ -17,9 +17,9 @@
   "launchType": "FARGATE",
   "loadBalancers": [
     {
-      "containerName": "httpd",
+      "containerName": "nginx",
       "containerPort": 80,
-      "targetGroupArn": "arn:aws:elasticloadbalancing:ap-northeast-1:996109426400:targetgroup/green-target-group/f23a389bdf90a916"
+      "targetGroupArn": "arn:aws:elasticloadbalancing:ap-northeast-1:996109426400:targetgroup/blue-target-group/c45d96ea362ed668"
     }
   ],
   "networkConfiguration": {
