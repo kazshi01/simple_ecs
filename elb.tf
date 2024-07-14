@@ -61,9 +61,25 @@ resource "aws_lb_listener" "http" {
   }
 }
 
-resource "aws_lb_listener_rule" "green_rule" {
+resource "aws_lb_listener_rule" "blue_rule" {
   listener_arn = aws_lb_listener.http.arn
   priority     = 100
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.blue.arn
+  }
+
+  condition {
+    path_pattern {
+      values = ["/"]
+    }
+  }
+}
+
+resource "aws_lb_listener_rule" "green_rule" {
+  listener_arn = aws_lb_listener.http.arn
+  priority     = 200
 
   action {
     type             = "forward"
@@ -72,7 +88,7 @@ resource "aws_lb_listener_rule" "green_rule" {
 
   condition {
     path_pattern {
-      values = ["/*"]
+      values = ["/"]
     }
   }
 }

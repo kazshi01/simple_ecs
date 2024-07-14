@@ -2,8 +2,8 @@ resource "aws_ecs_cluster" "default" {
   name = "default-cluster"
 }
 
-resource "aws_ecs_service" "nginx" {
-  name            = "nginx-service"
+resource "aws_ecs_service" "service" {
+  name            = "default-service"
   cluster         = aws_ecs_cluster.default.id
   task_definition = "arn:aws:ecs:ap-northeast-1:996109426400:task-definition/nginx:5"
   desired_count   = 1
