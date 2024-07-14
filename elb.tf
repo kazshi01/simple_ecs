@@ -10,7 +10,7 @@ resource "aws_lb" "alb" {
   name               = "simple-alb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [data.aws_security_group.default_web_sg.id]
+  security_groups    = [data.aws_security_group.default_alb_sg.id]
   subnets            = [data.aws_subnet.default_public_subnet_a.id, data.aws_subnet.default_public_subnet_c.id]
 
   enable_deletion_protection = false

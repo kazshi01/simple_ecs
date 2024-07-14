@@ -21,9 +21,16 @@ data "aws_subnet" "default_public_subnet_c" {
   vpc_id = data.aws_vpc.default.id
 }
 
-data "aws_security_group" "default_web_sg" {
+data "aws_security_group" "default_alb_sg" {
   filter {
     name   = "tag:Name"
-    values = ["default-sg"]
+    values = ["default-alb-sg"]
+  }
+}
+
+data "aws_security_group" "default_ecs_sg" {
+  filter {
+    name   = "tag:Name"
+    values = ["default-ecs-sg"]
   }
 }
