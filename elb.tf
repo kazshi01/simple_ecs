@@ -61,34 +61,32 @@ resource "aws_lb_listener" "http" {
   }
 }
 
-# resource "aws_lb_listener_rule" "blue_rule" {
-#   listener_arn = aws_lb_listener.http.arn
-#   priority     = 200
+resource "aws_lb_listener_rule" "blue_rule" {
+  listener_arn = aws_lb_listener.http.arn
 
-#   action {
-#     type             = "forward"
-#     target_group_arn = aws_lb_target_group.blue.arn
-#   }
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.blue.arn
+  }
 
-#   condition {
-#     path_pattern {
-#       values = ["/"]
-#     }
-#   }
-# }
+  condition {
+    path_pattern {
+      values = ["/"]
+    }
+  }
+}
 
-# resource "aws_lb_listener_rule" "green_rule" {
-#   listener_arn = aws_lb_listener.http.arn
-#   priority     = 100
+resource "aws_lb_listener_rule" "green_rule" {
+  listener_arn = aws_lb_listener.http.arn
 
-#   action {
-#     type             = "forward"
-#     target_group_arn = aws_lb_target_group.green.arn
-#   }
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.green.arn
+  }
 
-#   condition {
-#     path_pattern {
-#       values = ["/"]
-#     }
-#   }
-# }
+  condition {
+    path_pattern {
+      values = ["/"]
+    }
+  }
+}
